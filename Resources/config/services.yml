@@ -1,0 +1,14 @@
+parameters:
+    caxy.webhook.event_dispatcher.class: Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher
+    caxy.webhook.controller.class: Caxy\Bundle\WebhookBundle\Controller\WebhookController
+
+services:
+    caxy.webhook.event_dispatcher:
+        class: %caxy.webhook.event_dispatcher.class%
+        arguments:
+            - @service_container
+
+    caxy.webhook.controller:
+        class: %caxy.webhook.controller.class%
+        arguments:
+            - @caxy.webhook.event_dispatcher

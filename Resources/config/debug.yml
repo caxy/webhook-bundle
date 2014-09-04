@@ -1,0 +1,12 @@
+parameters:
+    caxy.webhook.debug.event_dispatcher.class: Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
+
+services:
+    caxy.webhook.debug.event_dispatcher:
+        class: %caxy.webhook.debug.event_dispatcher.class%
+        arguments:
+            - @caxy.webhook.debug.event_dispatcher.parent
+            - @debug.stopwatch
+            - @?logger
+        tags:
+            - { name: monolog.logger, channel: event }

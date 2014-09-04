@@ -1,0 +1,19 @@
+{
+    "name": "caxy/webhook-bundle",
+    "description": "Generic support for converting webhook calls into events.",
+    "license": "MIT",
+    "require": {
+        "jms/serializer": "~0.16"
+    },
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bdoherty@caxy.com"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
