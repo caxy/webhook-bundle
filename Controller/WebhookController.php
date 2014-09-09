@@ -30,6 +30,7 @@ class WebhookController
      */
     public function handleAction($service, Request $request)
     {
+        /** @var WebhookEvent $event */
         $event = $this->dispatcher->dispatch('webhook.'. $service, new WebhookEvent($request));
 
         return new Response();
