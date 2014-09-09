@@ -27,12 +27,6 @@ class CaxyWebhookExtension extends Extension
 
         if ($container->getParameter('kernel.debug')) {
             $loader->load('debug.yml');
-
-            // replace the regular event_dispatcher service with the debug one
-            $definition = $container->findDefinition('caxy.webhook.event_dispatcher');
-            $definition->setPublic(false);
-            $container->setDefinition('caxy.webhook.debug.event_dispatcher.parent', $definition);
-            $container->setAlias('caxy.webhook.event_dispatcher', 'caxy.webhook.debug.event_dispatcher');
         }
     }
 }

@@ -5,8 +5,10 @@ services:
     caxy.webhook.debug.event_dispatcher:
         class: %caxy.webhook.debug.event_dispatcher.class%
         arguments:
-            - @caxy.webhook.debug.event_dispatcher.parent
+            - @caxy.webhook.event_dispatcher
             - @debug.stopwatch
             - @?logger
+        calls:
+            - [ setProfiler, [ @?profiler ] ]
         tags:
             - { name: monolog.logger, channel: event }
