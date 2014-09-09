@@ -11,19 +11,22 @@ class CaxyWebhookBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
+        parent::build($container);
+
         if (Kernel::MINOR_VERSION < 5) {
             $pass = new \Symfony\Component\HttpKernel\DependencyInjection\RegisterListenersPass(
-              'webhook_event_dispatcher',
-              'webhook_event_listener',
-              'webhook_event_subscriber'
+              'caxy.webhook.event_dispatcher',
+              'webhook.event_listener',
+              'webhook.event_subscriber'
             );
         } else {
             $pass = new \Symfony\Component\EventDispatcher\DependencyInjection\RegisterListenersPass(
-              'webhook_event_dispatcher',
-              'webhook_event_listener',
-              'webhook_event_subscriber'
+              'caxy.webhook.event_dispatcher',
+              'webhook.event_listener',
+              'webhook.event_subscriber'
             );
         }
+
         $container->addCompilerPass(
           $pass,
           PassConfig::TYPE_BEFORE_REMOVING
