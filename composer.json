@@ -11,6 +11,11 @@
             "email": "bdoherty@caxy.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Caxy\\Bundle\\WebhookBundle\\": ""
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
