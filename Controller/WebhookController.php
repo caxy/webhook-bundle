@@ -23,12 +23,14 @@ class WebhookController
     }
 
     /**
-     * @param  Request  $request
+     * @param string  $service
+     * @param Request $request
+     *
      * @return Response
      */
-    public function handleAction(Request $request)
+    public function handleAction($service, Request $request)
     {
-        $event = $this->dispatcher->dispatch('webhook', new WebhookEvent($request));
+        $event = $this->dispatcher->dispatch('webhook.'. $service, new WebhookEvent($request));
 
         return new Response();
     }

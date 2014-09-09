@@ -1,4 +1,4 @@
 caxy_webhook:
-    path:   /webhook
+    path:   /webhook/{service}
     defaults: { _controller: caxy.webhook.controller:handleAction }
     requirements: { _method: POST }
